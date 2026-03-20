@@ -1,0 +1,8 @@
+#!name=Block QUIC UDP443
+#!desc=Reject UDP 443 to reduce QUIC-related instability on some proxy paths.
+#!author=Codex
+#!date=2026-03-20
+
+[Rule]
+AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT-NO-DROP
+

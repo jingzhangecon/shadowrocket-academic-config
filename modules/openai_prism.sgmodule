@@ -1,0 +1,47 @@
+#!name=OpenAI Prism Stable
+#!desc=Prioritize stable OpenAI, ChatGPT and Prism access for Shadowrocket.
+#!author=Codex
+#!date=2026-03-20
+
+[General]
+dns-direct-system = true
+dns-direct-fallback-proxy = true
+udp-policy-not-supported-behaviour = REJECT
+
+[Rule]
+AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT-NO-DROP
+DOMAIN,prism.openai.com,PROXY
+DOMAIN-SUFFIX,chatgpt.com,PROXY
+DOMAIN-SUFFIX,openai.com,PROXY
+DOMAIN-SUFFIX,oaistatic.com,PROXY
+DOMAIN-SUFFIX,oaiusercontent.com,PROXY
+DOMAIN-SUFFIX,openaiapi-site.azureedge.net,PROXY
+DOMAIN-SUFFIX,openaicom.imgix.net,PROXY
+DOMAIN-SUFFIX,chatgpt.livekit.cloud,PROXY
+DOMAIN-SUFFIX,host.livekit.cloud,PROXY
+DOMAIN-SUFFIX,turn.livekit.cloud,PROXY
+DOMAIN-SUFFIX,client-api.arkoselabs.com,PROXY
+DOMAIN-SUFFIX,auth0.com,PROXY
+DOMAIN-SUFFIX,launchdarkly.com,PROXY
+DOMAIN-SUFFIX,segment.io,PROXY
+DOMAIN-SUFFIX,sentry.io,PROXY
+DOMAIN-SUFFIX,algolia.net,PROXY
+DOMAIN-SUFFIX,intercom.io,PROXY
+DOMAIN-SUFFIX,intercomcdn.com,PROXY
+DOMAIN-SUFFIX,cdn.cloudflare.net,PROXY
+DOMAIN-SUFFIX,challenges.cloudflare.com,PROXY
+DOMAIN-SUFFIX,featuregates.org,PROXY
+DOMAIN-SUFFIX,identrust.com,PROXY
+DOMAIN-SUFFIX,observeit.net,PROXY
+DOMAIN-SUFFIX,stripe.com,PROXY
+DOMAIN,api.statsig.com,PROXY
+DOMAIN,browser-intake-datadoghq.com,PROXY
+DOMAIN,chat.openai.com.cdn.cloudflare.net,PROXY
+DOMAIN,o33249.ingest.sentry.io,PROXY
+DOMAIN,openai-api.arkoselabs.com,PROXY
+DOMAIN,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net,PROXY
+DOMAIN,openaicomproductionae4b.blob.core.windows.net,PROXY
+DOMAIN,production-openaicom-storage.azureedge.net,PROXY
+DOMAIN,static.cloudflareinsights.com,PROXY
+DOMAIN-KEYWORD,openaicom-api,PROXY
+
