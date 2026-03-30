@@ -1,15 +1,17 @@
 #!name=OpenAI Prism Stable
 #!desc=Prioritize stable OpenAI, ChatGPT and Prism access for Shadowrocket.
 #!author=Codex
-#!date=2026-03-20
+#!date=2026-03-31
 
 [General]
-dns-direct-system = true
+dns-server = 1.1.1.1, 8.8.8.8
+fallback-dns-server = 1.1.1.1, 8.8.8.8
+dns-direct-system = false
 dns-direct-fallback-proxy = true
 udp-policy-not-supported-behaviour = REJECT
 
 [Rule]
-AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT-NO-DROP
+# AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT-NO-DROP
 DOMAIN,prism.openai.com,PROXY
 DOMAIN-SUFFIX,chatgpt.com,PROXY
 DOMAIN-SUFFIX,openai.com,PROXY
@@ -44,4 +46,3 @@ DOMAIN,openaicomproductionae4b.blob.core.windows.net,PROXY
 DOMAIN,production-openaicom-storage.azureedge.net,PROXY
 DOMAIN,static.cloudflareinsights.com,PROXY
 DOMAIN-KEYWORD,openaicom-api,PROXY
-

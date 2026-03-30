@@ -12,7 +12,7 @@
 - `modules/economics_research.sgmodule`
   - 学术期刊、数据库、Google Scholar、学校认证相关规则。
 - `modules/quic_block.sgmodule`
-  - 只负责屏蔽 UDP 443，也就是 QUIC。很多 OpenAI/Prism 中断问题靠它能稳定不少。
+  - 只负责屏蔽 UDP 443，也就是 QUIC。这个模块留作排障用，默认不建议先开。
 
 ## 现在怎么用
 
@@ -44,13 +44,13 @@
 
 1. 先换一个更稳定的节点。
 2. 继续使用 `academic_full.conf`。
-3. 确认 `[Rule]` 里还保留这行：
+3. 如果你碰到 Prism / OpenAI 反复掉线，再临时打开 QUIC 屏蔽模块，或者确认 `[Rule]` 里还保留这行：
 
 ```conf
 AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT-NO-DROP
 ```
 
-4. 如果某个 App 因为这行规则变得异常，再把这行前面加 `#` 注释掉测试。
+4. 如果别的 App 因为这条规则变得异常，就把它关掉再测。
 
 ## 以后怎么做自动更新
 
@@ -62,6 +62,12 @@ Shadowrocket 支持远程配置和远程模块。最省心的长期方案是：
    - 远程配置：`配置 > + > 从 URL 下载`
    - 远程模块：`配置 > 模块 > + > 粘贴模块 URL`
 4. 打开 Shadowrocket 里的自动更新。
+
+默认更稳的组合是：
+
+1. `academic_full.conf` 负责主配置。
+2. `modules/openai_prism.sgmodule` 负责 OpenAI / Prism 单独调优。
+3. `modules/quic_block.sgmodule` 只在需要时再开。
 
 Shadowrocket 支持的导入链接格式：
 
