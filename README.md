@@ -4,7 +4,7 @@
 
 ## 文件说明
 
-- `academic_full.conf`
+- `academic_stable.conf`
   - 推荐你现在直接导入这一份。
   - 已经包含 OpenAI / Prism 稳定规则和经济学研究常用学术站点规则。
 - `modules/openai_prism.sgmodule`
@@ -16,13 +16,13 @@
 
 ## 现在怎么用
 
-如果你是第一次配，先只导入 `academic_full.conf`。
+如果你是第一次配，先只导入 `academic_stable.conf`。
 
 在 Shadowrocket 里按这个顺序操作：
 
 1. 打开“配置”页面。
 2. 点“导入...”或者“Wi-Fi 上传”。
-3. 选择 `academic_full.conf`。
+3. 选择 `academic_stable.conf`。
 4. 导入后点“使用配置”。
 
 ## 建议再检查的设置
@@ -43,7 +43,7 @@
 按下面顺序排查：
 
 1. 先换一个更稳定的节点。
-2. 继续使用 `academic_full.conf`。
+2. 继续使用 `academic_stable.conf`。
 3. 如果你碰到 Prism / OpenAI 反复掉线，再临时打开 QUIC 屏蔽模块，或者确认 `[Rule]` 里还保留这行：
 
 ```conf
@@ -56,7 +56,7 @@ AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT-NO-DROP
 
 Shadowrocket 支持远程配置和远程模块。最省心的长期方案是：
 
-1. 把 `academic_full.conf` 和 `modules/*.sgmodule` 上传到 GitHub 仓库或 Gist。
+1. 把 `academic_stable.conf` 和 `modules/*.sgmodule` 上传到 GitHub 仓库或 Gist。
 2. 复制它们的 Raw 链接。
 3. 在 Shadowrocket 中导入远程文件：
    - 远程配置：`配置 > + > 从 URL 下载`
@@ -65,7 +65,7 @@ Shadowrocket 支持远程配置和远程模块。最省心的长期方案是：
 
 默认更稳的组合是：
 
-1. `academic_full.conf` 负责主配置。
+1. `academic_stable.conf` 负责主配置。
 2. `modules/openai_prism.sgmodule` 负责 OpenAI / Prism 单独调优。
 3. `modules/quic_block.sgmodule` 只在需要时再开。
 
@@ -78,5 +78,5 @@ Shadowrocket 支持的导入链接格式：
 
 ## 你现在只需要记住两点
 
-1. 先用 `academic_full.conf`，这是最简单的。
+1. 先用 `academic_stable.conf`，这是最简单的。
 2. 以后如果你想“持续更新”，就把模块放到 GitHub 上，用远程模块方式导入。
