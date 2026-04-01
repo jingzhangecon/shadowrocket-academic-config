@@ -73,6 +73,14 @@ DOMAIN-SUFFIX,piie.com,PROXY
 DOMAIN-SUFFIX,cato.org,PROXY
 DOMAIN-SUFFIX,heritage.org,PROXY
 
+# === Chinese Universities & Infrastructure ===
+# 确保国内高校(如上财)的图书馆、VPN、CARSI及知网等直连
+DOMAIN-SUFFIX,edu.cn,DIRECT
+DOMAIN-SUFFIX,sufe.edu.cn,DIRECT
+DOMAIN-SUFFIX,shufe.edu.cn,DIRECT
+DOMAIN-SUFFIX,carsi.edu.cn,DIRECT
+DOMAIN-SUFFIX,cnki.net,DIRECT
+
 # === Library & Authentication ===
 DOMAIN-SUFFIX,openathens.net,PROXY
 DOMAIN-KEYWORD,ezproxy,PROXY
