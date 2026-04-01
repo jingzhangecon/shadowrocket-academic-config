@@ -1,20 +1,26 @@
 #!name=Economics Research
-#!desc=Academic journal and database routing for economics research.
+#!desc=Comprehensive academic journal, database, and institution routing for economics research.
 #!author=Codex
-#!date=2026-03-20
+#!date=2026-04-01
 
 [Rule]
+# === General Academic Search ===
 DOMAIN-SUFFIX,scholar.google.com,PROXY
 DOMAIN-SUFFIX,googleusercontent.com,PROXY
-DOMAIN-SUFFIX,nber.org,PROXY
-DOMAIN-SUFFIX,ssrn.com,PROXY
-DOMAIN-SUFFIX,repec.org,PROXY
-DOMAIN-SUFFIX,ideas.repec.org,PROXY
-DOMAIN-SUFFIX,econpapers.repec.org,PROXY
-DOMAIN-SUFFIX,aeaweb.org,PROXY
-DOMAIN-SUFFIX,cepr.org,PROXY
-DOMAIN-SUFFIX,econstor.eu,PROXY
 DOMAIN-SUFFIX,arxiv.org,PROXY
+DOMAIN-SUFFIX,proquest.com,PROXY
+DOMAIN-SUFFIX,webofscience.com,PROXY
+DOMAIN-SUFFIX,clarivate.com,PROXY
+DOMAIN-SUFFIX,scopus.com,PROXY
+
+# === Economics Journals & Associations ===
+DOMAIN-SUFFIX,aeaweb.org,PROXY
+DOMAIN-SUFFIX,econometricsociety.org,PROXY
+DOMAIN-SUFFIX,journals.uchicago.edu,PROXY
+DOMAIN-SUFFIX,mitpressjournals.org,PROXY
+DOMAIN-SUFFIX,annualreviews.org,PROXY
+
+# === Publishers & Major Platforms ===
 DOMAIN-SUFFIX,jstor.org,PROXY
 DOMAIN-SUFFIX,cambridge.org,PROXY
 DOMAIN-SUFFIX,oup.com,PROXY
@@ -23,20 +29,53 @@ DOMAIN-SUFFIX,springer.com,PROXY
 DOMAIN-SUFFIX,springerlink.com,PROXY
 DOMAIN-SUFFIX,wiley.com,PROXY
 DOMAIN-SUFFIX,tandfonline.com,PROXY
-DOMAIN-SUFFIX,proquest.com,PROXY
-DOMAIN-SUFFIX,webofscience.com,PROXY
-DOMAIN-SUFFIX,clarivate.com,PROXY
-DOMAIN-SUFFIX,scopus.com,PROXY
+DOMAIN-SUFFIX,science.org,PROXY
+DOMAIN-SUFFIX,sciencemag.org,PROXY
+DOMAIN-SUFFIX,nature.com,PROXY
+DOMAIN-SUFFIX,degruyter.com,PROXY
+DOMAIN-SUFFIX,ebsco.com,PROXY
+DOMAIN-SUFFIX,ebscohost.com,PROXY
+DOMAIN-SUFFIX,gale.com,PROXY
+
+# === Preprints & Working Papers ===
+DOMAIN-SUFFIX,nber.org,PROXY
+DOMAIN-SUFFIX,ssrn.com,PROXY
+DOMAIN-SUFFIX,repec.org,PROXY
+DOMAIN-SUFFIX,ideas.repec.org,PROXY
+DOMAIN-SUFFIX,econpapers.repec.org,PROXY
+DOMAIN-SUFFIX,cepr.org,PROXY
+DOMAIN-SUFFIX,econstor.eu,PROXY
+DOMAIN-SUFFIX,iza.org,PROXY
+
+# === Economics Data Sources ===
+DOMAIN-SUFFIX,stlouisfed.org,PROXY
+DOMAIN-SUFFIX,wharton.upenn.edu,PROXY
+DOMAIN-SUFFIX,wrds.us,PROXY
+DOMAIN-SUFFIX,ipums.org,PROXY
+DOMAIN-SUFFIX,icpsr.umich.edu,PROXY
+DOMAIN-SUFFIX,bea.gov,PROXY
+DOMAIN-SUFFIX,bls.gov,PROXY
+DOMAIN-SUFFIX,census.gov,PROXY
+DOMAIN-SUFFIX,statista.com,PROXY
+DOMAIN-SUFFIX,bvdinfo.com,PROXY
+DOMAIN-SUFFIX,rfe.org,PROXY
+DOMAIN-SUFFIX,ec.europa.eu,PROXY
+
+# === Int'l Organizations & Think Tanks ===
 DOMAIN-SUFFIX,worldbank.org,PROXY
 DOMAIN-SUFFIX,imf.org,PROXY
 DOMAIN-SUFFIX,oecd.org,PROXY
 DOMAIN-SUFFIX,oecd-ilibrary.org,PROXY
-DOMAIN-SUFFIX,science.org,PROXY
-DOMAIN-SUFFIX,sciencemag.org,PROXY
-DOMAIN-SUFFIX,nature.com,PROXY
+DOMAIN-SUFFIX,voxeu.org,PROXY
+DOMAIN-SUFFIX,brookings.edu,PROXY
+DOMAIN-SUFFIX,rand.org,PROXY
+DOMAIN-SUFFIX,piie.com,PROXY
+DOMAIN-SUFFIX,cato.org,PROXY
+DOMAIN-SUFFIX,heritage.org,PROXY
+
+# === Library & Authentication ===
 DOMAIN-SUFFIX,openathens.net,PROXY
 DOMAIN-KEYWORD,ezproxy,PROXY
 DOMAIN-KEYWORD,libproxy,PROXY
 DOMAIN-KEYWORD,shibboleth,PROXY
 DOMAIN-KEYWORD,openathens,PROXY
-
