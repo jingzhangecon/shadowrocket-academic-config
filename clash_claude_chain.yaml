@@ -18,7 +18,7 @@ prepend-proxy-groups:
       - "US-Claude-Socks5"
 
 append-proxy-groups:
-  - name: "主代理 (Selector)"
+  - name: "主代理"
     proxies:
       - "Claude-Chain"
       - "US-Claude-Socks5"
