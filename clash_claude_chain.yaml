@@ -9,17 +9,12 @@ proxies:
     username: "1EDHhzBv3DDgLSe"
     password: "dwi3ANd0cvCUBWv"
     udp: true
+    dialer-proxy: "JP-2"
 
 proxy-groups:
-  - name: "Claude-Chain"
-    type: relay
-    proxies:
-      - "JP-2"
-      - "US-Claude-Socks5"
   - name: "Claude独立选择"
     type: select
     proxies:
-      - "Claude-Chain"
       - "US-Claude-Socks5"
 
 rules:
