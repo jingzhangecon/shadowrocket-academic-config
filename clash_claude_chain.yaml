@@ -16,15 +16,14 @@ prepend-proxy-groups:
     proxies:
       - "JP-2"
       - "US-Claude-Socks5"
-
-append-proxy-groups:
-  - name: "主代理"
+  - name: "Claude独立选择"
+    type: select
     proxies:
       - "Claude-Chain"
       - "US-Claude-Socks5"
 
 prepend-rules:
-  - DOMAIN-SUFFIX,claude.ai,Claude-Chain
-  - DOMAIN-SUFFIX,anthropic.com,Claude-Chain
-  - DOMAIN-SUFFIX,chatgpt.com,Claude-Chain
-  - DOMAIN-SUFFIX,openai.com,Claude-Chain
+  - DOMAIN-SUFFIX,claude.ai,Claude独立选择
+  - DOMAIN-SUFFIX,anthropic.com,Claude独立选择
+  - DOMAIN-SUFFIX,chatgpt.com,Claude独立选择
+  - DOMAIN-SUFFIX,openai.com,Claude独立选择
