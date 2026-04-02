@@ -1,5 +1,5 @@
 # Clash Verge Merge Profile for Claude Proxy Chaining
-# 作用: 将美国 Socks5 节点注入到所有的代理组中，直接通过规则使用，放弃外挂独立的 select 组（因为 UI 经常无法渲染）。
+# 作用: 回退使用最稳定原生的 relay 代理链语法。
 
 proxies:
   - name: "US-Claude-Socks5"
@@ -9,22 +9,21 @@ proxies:
     username: "1EDHhzBv3DDgLSe"
     password: "dwi3ANd0cvCUBWv"
     udp: true
-    # 注意：这里指定前置节点为 JP-3
-    dialer-proxy: "JP-3"
 
 prepend-proxy-groups:
-  - name: "Claude-Chain"
-    type: select
+  - name: "Claude独立选择"
+    type: relay
     proxies:
-      - "US-Claude-Socks5"
+      - "JP-2" # 入口节点：先连到日本（这里我改成了您截图中能 ping 通的 JP-2）
+      - "US-Claude-Socks5" # 出口节点：再从日本连到美国
 
 append-proxy-groups:
-  - name: "PROXIES" # 尝试将新组挂载到默认的全局组
+  - name: "PROXIES" # 将这条链加入全局组，防止 UI 渲染不出来
     proxies:
-      - "Claude-Chain"
+      - "Claude独立选择"
 
 rules:
-  - DOMAIN-SUFFIX,claude.ai,Claude-Chain
-  - DOMAIN-SUFFIX,anthropic.com,Claude-Chain
-  - DOMAIN-SUFFIX,chatgpt.com,Claude-Chain
-  - DOMAIN-SUFFIX,openai.com,Claude-Chain
+  - DOMAIN-SUFFIX,claude.ai,Claude独立选择
+  - DOMAIN-SUFFIX,anthropic.com,Claude独立选择
+  - DOMAIN-SUFFIX,chatgpt.com,Claude独立选择
+  - DOMAIN-SUFFIX,openai.com,Claude独立选择
