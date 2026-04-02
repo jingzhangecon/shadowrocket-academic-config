@@ -1,5 +1,5 @@
 # Clash Verge Merge Profile for Claude Proxy Chaining
-# 作用: 在原有订阅的基础上，外挂一个美国 Socks5 节点，并与 JP-2 串联成代理链，专门供给 Claude 使用。
+# 作用: 在原有订阅的基础上，外挂一个美国 Socks5 节点，并与 JP-3 串联成代理链，专门供给 Claude 使用。
 
 proxies:
   - name: "US-Claude-Socks5"
@@ -9,8 +9,8 @@ proxies:
     username: "1EDHhzBv3DDgLSe"
     password: "dwi3ANd0cvCUBWv"
     udp: true
-    # 将前置节点指定为宏观的选择器组，绕过底层加载顺序问题
-    dialer-proxy: "主代理"
+    # 指定前置节点为 JP-3 (请确保您的节点列表中有这个名字，如果有表情符号请连表情一起复制)
+    dialer-proxy: "JP-3"
 
 proxy-groups:
   - name: "Claude独立选择"
