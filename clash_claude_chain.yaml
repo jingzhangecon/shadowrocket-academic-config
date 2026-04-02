@@ -9,7 +9,8 @@ proxies:
     username: "1EDHhzBv3DDgLSe"
     password: "dwi3ANd0cvCUBWv"
     udp: true
-    dialer-proxy: "JP-2"
+    # 将前置节点指定为宏观的选择器组，绕过底层加载顺序问题
+    dialer-proxy: "主代理"
 
 proxy-groups:
   - name: "Claude独立选择"
