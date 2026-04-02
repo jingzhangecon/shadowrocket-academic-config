@@ -1,6 +1,20 @@
-# Clash Verge Merge Profile for Claude Proxy Chaining
-# 仅仅注入节点本身，不触碰任何代理组（proxy-groups），这是最不可能报错的写法。
+# 完全放弃 Merge。这是一个完整的独立本地配置。
+# 使用方法：在 Clash Verge 订阅列表右上角新建 -> Local，粘贴进去作为独立配置文件使用。
+
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: Rule
+log-level: info
+
 proxies:
+  - name: "JP-2 (示例入口)"
+    type: vless # 请注意，这里的入口节点参数需要您从自己的机场里复制过来替换
+    server: example.com
+    port: 443
+    uuid: "your-uuid-here"
+    udp: true
+
   - name: "US-Claude-Socks5"
     type: socks5
     server: 77.111.118.251
@@ -8,3 +22,17 @@ proxies:
     username: "1EDHhzBv3DDgLSe"
     password: "dwi3ANd0cvCUBWv"
     udp: true
+
+proxy-groups:
+  - name: "Claude-Chain"
+    type: relay
+    proxies:
+      - "JP-2 (示例入口)"
+      - "US-Claude-Socks5"
+
+rules:
+  - DOMAIN-SUFFIX,claude.ai,Claude-Chain
+  - DOMAIN-SUFFIX,anthropic.com,Claude-Chain
+  - DOMAIN-SUFFIX,chatgpt.com,Claude-Chain
+  - DOMAIN-SUFFIX,openai.com,Claude-Chain
+  - MATCH,DIRECT
