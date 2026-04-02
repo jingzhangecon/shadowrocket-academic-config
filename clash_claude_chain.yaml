@@ -17,6 +17,12 @@ prepend-proxy-groups:
       - "JP-2"
       - "US-Claude-Socks5"
 
+append-proxy-groups:
+  - name: "主代理 (Selector)"
+    proxies:
+      - "Claude-Chain"
+      - "US-Claude-Socks5"
+
 prepend-rules:
   - DOMAIN-SUFFIX,claude.ai,Claude-Chain
   - DOMAIN-SUFFIX,anthropic.com,Claude-Chain
