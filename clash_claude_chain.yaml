@@ -1,7 +1,7 @@
 # Clash Verge Merge Profile for Claude Proxy Chaining
 # 作用: 在原有订阅的基础上，外挂一个美国 Socks5 节点，并与 JP-2 串联成代理链，专门供给 Claude 使用。
 
-prepend-proxies:
+proxies:
   - name: "US-Claude-Socks5"
     type: socks5
     server: 77.111.118.251
@@ -10,7 +10,7 @@ prepend-proxies:
     password: "dwi3ANd0cvCUBWv"
     udp: true
 
-prepend-proxy-groups:
+proxy-groups:
   - name: "Claude-Chain"
     type: relay
     proxies:
@@ -22,7 +22,7 @@ prepend-proxy-groups:
       - "Claude-Chain"
       - "US-Claude-Socks5"
 
-prepend-rules:
+rules:
   - DOMAIN-SUFFIX,claude.ai,Claude独立选择
   - DOMAIN-SUFFIX,anthropic.com,Claude独立选择
   - DOMAIN-SUFFIX,chatgpt.com,Claude独立选择
