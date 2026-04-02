@@ -1,7 +1,5 @@
 # Clash Verge Merge Profile for Claude Proxy Chaining
-# 放弃所有复杂的 Merge 代理组注入，直接注入单个代理节点
-# 用户可以通过 GUI 的“链式代理”功能自己把这个节点连起来
-
+# 仅仅注入节点本身，不触碰任何代理组（proxy-groups），这是最不可能报错的写法。
 proxies:
   - name: "US-Claude-Socks5"
     type: socks5
@@ -10,8 +8,3 @@ proxies:
     username: "1EDHhzBv3DDgLSe"
     password: "dwi3ANd0cvCUBWv"
     udp: true
-
-append-proxy-groups:
-  - name: "PROXIES" # 将其注入默认的全局代理池，使其在代理列表中可见
-    proxies:
-      - "US-Claude-Socks5"
